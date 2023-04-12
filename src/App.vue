@@ -1,7 +1,15 @@
 <template>
-  <h1>Hello World</h1>
+  <the-header></the-header>
 </template>
 
-<script></script>
+<script>
+import TheHeader from "./components/layout/TheHeader.vue"
+
+export default {
+  components: {
+    TheHeader
+  }
+}
+</script>
 
 <style scoped></style>

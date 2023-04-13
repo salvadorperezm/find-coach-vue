@@ -16,11 +16,11 @@ export default {
             links: [
                 {
                     description: 'all coaches',
-                    route: '/find-coach-vue/'
+                    route: '/find-coach-vue/coaches/'
                 },
                 {
                     description: 'requests',
-                    route: '/find-coach-vue/requests'
+                    route: '/find-coach-vue/requests/'
                 }
             ]
         }
@@ -63,6 +63,10 @@ export default {
 }
 
 .header__link:hover {
+    border: 1px solid var(--purple-light);
+}
+
+.router-link-active {
     border: 1px solid var(--purple-light);
 }
 </style>

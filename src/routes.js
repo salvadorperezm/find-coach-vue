@@ -1,10 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-const Home = { template: "<h2>Coaches</h2>" };
-const Requests = { template: "<h2>Requests</h2>" };
+import Coaches from "./components/pages/Coaches.vue";
+import Requests from "./components/pages/Requests.vue";
 
 const routes = [
-  { path: "/find-coach-vue/", component: Home },
+  { path: "/find-coach-vue/", redirect: "/find-coach-vue/coaches/" },
+  { path: "/find-coach-vue/coaches/", component: Coaches },
   { path: "/find-coach-vue/requests/", component: Requests },
 ];
 

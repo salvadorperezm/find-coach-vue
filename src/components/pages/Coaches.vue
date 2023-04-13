@@ -1,15 +1,18 @@
 <template>
     <div class="page-container">
         <coaches-filter></coaches-filter>
+        <coaches-list></coaches-list>
     </div>
 </template>
 
 <script>
 import CoachesFilter from "../coaches/CoachesFilter.vue"
+import CoachesList from "../coaches/CoachesList.vue";
 
 export default {
     components: {
-        CoachesFilter
+        CoachesFilter,
+        CoachesList
     }
 }
 </script>

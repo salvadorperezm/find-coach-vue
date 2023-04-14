@@ -21,15 +21,7 @@ export default {
         BaseBadge,
         BaseButton
     },
-    data() {
-        return {
-            coachData: {
-                name: 'Juan',
-                price: 40,
-                technologies: ['frontend', 'backend', 'career']
-            }
-        }
-    }
+    props: ['coachData']
 }
 </script>
 

@@ -8,11 +8,19 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 import TheHeader from "./components/layout/TheHeader.vue"
 
 export default {
+  created() {
+    this.fetchCoaches()
+  },
   components: {
     TheHeader
+  },
+  methods: {
+    ...mapActions(['fetchCoaches'])
   }
 }
 </script>

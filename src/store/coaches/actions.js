@@ -22,4 +22,7 @@ export default {
   deactivateIsFetchingCoaches(context) {
     context.commit("toggleIsFetchingCoaches", false);
   },
+  filterSelectedOptions(context, payload) {
+    context.commit("filterSelectedOptions", payload);
+  },
 };

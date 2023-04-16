@@ -5,4 +5,7 @@ export default {
   toggleIsFetchingCoaches(state, payload) {
     state.isFetchingCoaches = payload;
   },
+  filterSelectedOptions(state, payload) {
+    state.coachesFilterSelectedOptions = payload;
+  },
 };

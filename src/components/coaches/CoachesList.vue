@@ -2,7 +2,7 @@
     <base-card>
         <base-button :title="'refresh'" :type="'light'" @click="fetchCoaches"></base-button>
         <base-spinner v-if="isFetchingCoaches"></base-spinner>
-        <coach-card v-else v-for="coach in coaches" :key="coach.id" :coachData="coach"></coach-card>
+        <coach-card v-else v-for="coach in filteredCoaches" :key="coach.id" :coachData="coach"></coach-card>
     </base-card>
 </template>
 
@@ -25,7 +25,7 @@ export default {
         ...mapActions(['fetchCoaches'])
     },
     computed: {
-        ...mapGetters(['coaches', 'isFetchingCoaches'])
+        ...mapGetters(['filteredCoaches', 'isFetchingCoaches'])
     }
 }
 </script>

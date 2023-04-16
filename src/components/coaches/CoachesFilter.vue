@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 import BaseCard from '../ui/BaseCard.vue';
 
 export default {
@@ -21,6 +23,14 @@ export default {
         return {
             options: ['frontend', 'backend', 'career'],
             chosenOptions: []
+        }
+    },
+    methods: {
+        ...mapActions(['filterSelectedOptions'])
+    },
+    watch: {
+        chosenOptions() {
+            this.filterSelectedOptions(this.chosenOptions)
         }
     }
 }

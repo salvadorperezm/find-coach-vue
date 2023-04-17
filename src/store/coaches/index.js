@@ -6,7 +6,7 @@ export default {
   state() {
     return {
       coaches: [],
-      coachesFilterSelectedOptions: [],
+      coachesFilterSelectedOptions: ["frontend", "backend", "career"],
       isFetchingCoaches: false,
     };
   },

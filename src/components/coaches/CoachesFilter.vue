@@ -11,13 +11,16 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 import BaseCard from '../ui/BaseCard.vue';
 
 export default {
     components: {
         BaseCard
+    },
+    created() {
+        this.chosenOptions = this.coachesFilterSelectedOptions
     },
     data() {
         return {
@@ -27,6 +30,9 @@ export default {
     },
     methods: {
         ...mapActions(['filterSelectedOptions'])
+    },
+    computed: {
+        ...mapGetters(['coachesFilterSelectedOptions'])
     },
     watch: {
         chosenOptions() {

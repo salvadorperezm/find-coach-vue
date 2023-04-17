@@ -14,7 +14,7 @@ export default {
 
     const filteredCoaches = coaches.filter((coach) => {
       if (filterSelectedOptions.length === 0) {
-        return true;
+        return false;
       } else {
         return filterSelectedOptions.some((option) =>
           coach.technologies.includes(option)

@@ -2,6 +2,14 @@ export default {
   coaches(state) {
     return state.coaches;
   },
+  currentCoach(state, getters) {
+    const coaches = getters.coaches;
+    const currentCoachId = state.currentCoachId;
+
+    const currentCoach = coaches.find((coach) => coach.id === currentCoachId);
+
+    return currentCoach;
+  },
   isFetchingCoaches(state) {
     return state.isFetchingCoaches;
   },

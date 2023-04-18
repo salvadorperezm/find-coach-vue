@@ -8,4 +8,10 @@ export default {
   filterSelectedOptions(state, payload) {
     state.coachesFilterSelectedOptions = payload;
   },
+  setCurrentCoachId(state, coachId) {
+    state.currentCoachId = coachId;
+  },
+  removeCurrentCoachId(state, payload) {
+    state.currentCoachId = payload;
+  },
 };

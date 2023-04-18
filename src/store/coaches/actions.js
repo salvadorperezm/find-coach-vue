@@ -25,4 +25,10 @@ export default {
   filterSelectedOptions(context, payload) {
     context.commit("filterSelectedOptions", payload);
   },
+  setCurrentCoachId(context, coachId) {
+    context.commit("setCurrentCoachId", coachId);
+  },
+  removeCurrentCoachId(context) {
+    context.commit("removeCurrentCoachId", null);
+  },
 };

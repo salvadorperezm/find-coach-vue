@@ -6,13 +6,18 @@
             <base-badge v-for="technology in coachData.technologies" :key="technology" :type="technology"></base-badge>
         </div>
         <div class="coach-card__buttons">
-            <base-button :title="'contact'" :type="'light'"></base-button>
+            <router-link :to="`/find-coach-vue/coaches/${coachData.id}/contact`">
+                <base-button :title="'contact'" :type="'light'" @click="renderContactPage(coachData.id)"></base-button>
+            </router-link>
+
             <base-button :title="'view details'" :type="'bold'"></base-button>
         </div>
     </section>
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 import BaseBadge from "../ui/BaseBadge.vue"
 import BaseButton from '../ui/BaseButton.vue';
 
@@ -21,7 +26,13 @@ export default {
         BaseBadge,
         BaseButton
     },
-    props: ['coachData']
+    props: ['coachData'],
+    methods: {
+        ...mapActions(['setCurrentCoachId']),
+        renderContactPage(userId) {
+            this.setCurrentCoachId(userId)
+        }
+    }
 }
 </script>
 

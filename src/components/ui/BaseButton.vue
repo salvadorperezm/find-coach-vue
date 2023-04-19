@@ -25,9 +25,17 @@ export default {
     color: var(--black);
 }
 
+.light:hover {
+    background-color: var(--pink-light);
+}
+
 .bold {
     background-color: var(--blue-light);
     border: 1px solid transparent;
     color: var(--white)
+}
+
+.bold:hover {
+    background-color: var(--header-bg);
 }
 </style>

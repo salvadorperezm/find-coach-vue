@@ -36,6 +36,7 @@ export default {
             const fireBaseUrl = import.meta.env.VITE_FIREBASE_URL;
             try {
                 await axios.post(`${fireBaseUrl}/requests.json`, this.userInput)
+                this.$router.push('/find-coach-vue/')
             } catch (error) {
                 console.warn(error)
             }

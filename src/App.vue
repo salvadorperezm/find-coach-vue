@@ -26,7 +26,7 @@ export default {
 </script>
 
 <style scoped>
-.page-enter-active {
+.page-leave-active {
   animation: page 0.5s ease;
 }
 

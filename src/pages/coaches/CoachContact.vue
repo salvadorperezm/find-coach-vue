@@ -17,9 +17,9 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
 
-import BaseBadge from '../../ui/BaseBadge.vue';
-import BaseCard from "../../ui/BaseCard.vue"
-import ContactForm from "../../../components/coaches/ContactForm.vue"
+import BaseBadge from '../../components/ui/BaseBadge.vue';
+import BaseCard from "../../components/ui/BaseCard.vue"
+import ContactForm from "../../components/coaches/ContactForm.vue"
 
 export default {
     components: {

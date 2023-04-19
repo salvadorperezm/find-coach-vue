@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import CoachesFilter from "../../coaches/CoachesFilter.vue"
-import CoachesList from "../../coaches/CoachesList.vue";
+import CoachesFilter from "../../components/coaches/CoachesFilter.vue"
+import CoachesList from "../../components/coaches/CoachesList.vue";
 
 export default {
     components: {

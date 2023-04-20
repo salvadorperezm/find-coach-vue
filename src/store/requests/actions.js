@@ -1,13 +1,25 @@
 import axios from "axios";
 
+import { convertRequestsObjectToArray } from "../../utils";
+
 export default {
-  async submitRequest(payload) {
-    // const fireBaseUrl = import.meta.env.VITE_FIREBASE_URL;
+  async fetchRequests(context) {
+    context.dispatch("activateIsFetchingRequests");
+    const fireBaseUrl = import.meta.env.VITE_FIREBASE_URL;
     try {
-      // await axios.post(`${fireBaseUrl}/requests.json`, payload);
-      console.log(payload);
+      const response = await axios.get(`${fireBaseUrl}/requests.json`);
+      const fetchedRequests = convertRequestsObjectToArray(response.data);
+      context.commit("setRequests", fetchedRequests);
+      context.dispatch("deactivateIsFetchingRequests");
     } catch (error) {
       console.warn(error);
+      context.dispatch("deactivateIsFetchingRequests");
     }
+  },
+  activateIsFetchingRequests(context) {
+    context.commit("toggleIsFetchingRequests", true);
+  },
+  deactivateIsFetchingRequests(context) {
+    context.commit("toggleIsFetchingRequests", false);
   },
 };

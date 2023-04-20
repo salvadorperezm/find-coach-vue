@@ -10,3 +10,15 @@ export const convertObjectToArray = (response) => {
   }
   return results;
 };
+
+export const convertRequestsObjectToArray = (response) => {
+  const results = [];
+  for (const id in response) {
+    results.push({
+      id: id,
+      email: response[id].email,
+      message: response[id].message,
+    });
+  }
+  return results;
+};

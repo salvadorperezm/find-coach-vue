@@ -5,7 +5,7 @@
             <div class="spinner-container" v-if="isFetchingRequests">
                 <base-spinner></base-spinner>
             </div>
-            <request-card v-else v-for="request in requests" :requestData="request"></request-card>
+            <request-card v-else v-for="request in requests" :key="request.id" :requestData="request"></request-card>
         </base-card>
     </div>
 </template>

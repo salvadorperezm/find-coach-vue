@@ -1,6 +1,9 @@
 <template>
     <base-card>
-        <base-button :title="'refresh'" :type="'light'" @click="fetchCoaches"></base-button>
+        <div class="coaches__controls">
+            <base-button :title="'refresh'" :type="'light'" @click="fetchCoaches"></base-button>
+            <base-button :title="'register as coach'" :type="'bold'"></base-button>
+        </div>
         <base-spinner v-if="isFetchingCoaches"></base-spinner>
         <coach-card v-else v-for="coach in filteredCoaches" :key="coach.id" :coachData="coach"></coach-card>
     </base-card>
@@ -29,3 +32,11 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.coaches__controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+</style>

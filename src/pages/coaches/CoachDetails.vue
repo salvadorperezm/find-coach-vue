@@ -6,7 +6,8 @@
         </base-card>
         <base-card>
             <h2 class="contact-form__title">interested? reach out now!</h2>
-            <base-button :type="'bold'" :title="'contact'" class="contact-form__contact"></base-button>
+            <base-button :type="'bold'" :title="'contact'" class="contact-form__contact"
+                @click="$router.push(contactLink)"></base-button>
             <router-view></router-view>
         </base-card>
         <base-card>
@@ -45,6 +46,9 @@ export default {
     },
     computed: {
         ...mapGetters(['currentCoach']),
+        contactLink() {
+            return `/find-coach-vue/coaches/${this.currentCoach.id}/contact`
+        }
     },
 }
 </script>

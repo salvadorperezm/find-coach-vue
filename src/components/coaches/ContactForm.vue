@@ -42,9 +42,8 @@ export default {
 </script>
 
 <style scoped>
-.contact-form__contact,
 .contact-form__form {
-    margin-block-end: 16px;
+    margin-block: 16px;
 }
 
 .contact-form__form {

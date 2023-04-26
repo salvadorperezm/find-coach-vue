@@ -1,21 +1,17 @@
 <template>
-    <base-card>
-        <h2 class="contact-form__title">interested? reach out now!</h2>
-        <base-button :type="'bold'" :title="'contact'" class="contact-form__contact"></base-button>
-        <form class="contact-form__form" @submit.prevent="submitForm">
-            <label for="name" class="contact-form__label">your e-mail</label>
-            <input type="text" name="email" class="contact-form__input" v-model="userInput.email">
-            <label for="message" class="contact-form__label">your message</label>
-            <textarea name="message" class="contact-form__textarea" v-model="userInput.message"></textarea>
-            <base-button :type="'bold'" :title="'Send Message'" class="contact-form__submit"></base-button>
-        </form>
-    </base-card>
+    <form class="contact-form__form" @submit.prevent="submitForm">
+        <label for="name" class="contact-form__label">your e-mail</label>
+        <input type="text" name="email" class="contact-form__input" v-model="userInput.email">
+        <label for="message" class="contact-form__label">your message</label>
+        <textarea name="message" class="contact-form__textarea" v-model="userInput.message"></textarea>
+        <base-button :type="'bold'" :title="'Send Message'" class="contact-form__submit"></base-button>
+    </form>
 </template>
 
 <script>
 import axios from "axios"
 
-import BaseButton from "../ui/BaseButton.vue"
+import BaseButton from "../ui/BaseButton.vue";
 import BaseCard from "../ui/BaseCard.vue";
 
 export default {
@@ -46,11 +42,6 @@ export default {
 </script>
 
 <style scoped>
-.contact-form__title {
-    text-transform: capitalize;
-    margin-block: 16px;
-}
-
 .contact-form__contact,
 .contact-form__form {
     margin-block-end: 16px;

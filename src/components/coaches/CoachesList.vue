@@ -1,11 +1,15 @@
 <template>
-    <base-card>
+    <base-card v-if="isFetchingCoaches">
+        <base-spinner></base-spinner>
+    </base-card>
+    <base-card v-else>
         <div class="coaches__controls">
             <base-button :title="'refresh'" :type="'light'" @click="fetchCoaches"></base-button>
             <base-button :title="'register as coach'" :type="'bold'"></base-button>
         </div>
-        <base-spinner v-if="isFetchingCoaches"></base-spinner>
-        <coach-card v-else v-for="coach in filteredCoaches" :key="coach.id" :coachData="coach"></coach-card>
+        <coach-card v-if="filteredCoaches.length > 0" v-for="coach in filteredCoaches" :key="coach.id"
+            :coachData="coach"></coach-card>
+        <h2 v-else class="coaches__text">No coaches were found.</h2>
     </base-card>
 </template>
 
@@ -38,5 +42,10 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.coaches__text {
+    margin-block: 32px;
+    text-align: center;
 }
 </style>

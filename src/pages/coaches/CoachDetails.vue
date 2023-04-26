@@ -15,6 +15,7 @@
                 <base-badge v-for="technology in currentCoach.technologies" :key="technology"
                     :type="technology"></base-badge>
             </div>
+            <p class="coach-contact__description">{{ currentCoach.description }}</p>
         </base-card>
     </div>
 </template>
@@ -74,5 +75,9 @@ export default {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+
+.coach-contact__description {
+    margin-block: 8px;
 }
 </style>

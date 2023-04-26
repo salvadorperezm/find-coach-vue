@@ -6,6 +6,7 @@ export const convertObjectToArray = (response) => {
       name: response[id].name,
       price: response[id].price,
       technologies: response[id].technologies,
+      description: response[id].description,
     });
   }
   return results;

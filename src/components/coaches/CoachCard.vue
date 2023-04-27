@@ -7,10 +7,12 @@
         </div>
         <div class="coach-card__buttons">
             <router-link :to="`/find-coach-vue/coaches/${coachData.id}/contact`">
-                <base-button :title="'contact'" :type="'light'" @click="renderContactPage(coachData.id)"></base-button>
+                <base-button :title="'contact'" :type="'light'" @click="setCurrentCoachId(coachData.id)"></base-button>
             </router-link>
 
-            <base-button :title="'view details'" :type="'bold'"></base-button>
+            <router-link :to="`/find-coach-vue/coaches/${coachData.id}`">
+                <base-button :title="'view details'" :type="'bold'" @click="setCurrentCoachId(coachData.id)"></base-button>
+            </router-link>
         </div>
     </section>
 </template>
@@ -29,9 +31,6 @@ export default {
     props: ['coachData'],
     methods: {
         ...mapActions(['setCurrentCoachId']),
-        renderContactPage(userId) {
-            this.setCurrentCoachId(userId)
-        }
     }
 }
 </script>

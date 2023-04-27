@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import CoachesPage from "./pages/coaches/CoachesPage.vue";
 import CoachDetails from "./pages/coaches/CoachDetails.vue";
+import CoachRegistration from "./pages/coaches/CoachRegistration.vue";
 import ContactForm from "./components/coaches/ContactForm.vue";
 import RequestsPage from "./pages/requests/RequestsPage.vue";
 
@@ -19,6 +20,7 @@ const routes = [
     ],
   },
   { path: "/find-coach-vue/requests/", component: RequestsPage },
+  { path: "/find-coach-vue/register/", component: CoachRegistration },
 ];
 
 export const router = createRouter({

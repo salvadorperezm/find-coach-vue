@@ -9,6 +9,7 @@
 
 <script>
 import axios from 'axios';
+import { mapActions } from 'vuex';
 
 import BaseCard from '../../components/ui/BaseCard.vue';
 import RegisterForm from '../../components/coaches/RegisterForm.vue';
@@ -19,11 +20,13 @@ export default {
         RegisterForm
     },
     methods: {
+        ...mapActions(['fetchCoaches']),
         async uploadData(userInfo) {
             const fireBaseUrl = import.meta.env.VITE_FIREBASE_URL;
             try {
                 await axios.post(`${fireBaseUrl}/coaches.json`, userInfo)
                 this.$router.replace('/find-coach-vue/coaches')
+                this.fetchCoaches()
             } catch (error) {
                 console.warn(error)
             }

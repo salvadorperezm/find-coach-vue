@@ -5,7 +5,9 @@
     <base-card v-else>
         <div class="coaches__controls">
             <base-button :title="'refresh'" :type="'light'" @click="fetchCoaches"></base-button>
-            <base-button :title="'register as coach'" :type="'bold'"></base-button>
+            <router-link to="/find-coach-vue/register/">
+                <base-button :title="'register as coach'" :type="'bold'"></base-button>
+            </router-link>
         </div>
         <coach-card v-if="filteredCoaches.length > 0" v-for="coach in filteredCoaches" :key="coach.id"
             :coachData="coach"></coach-card>

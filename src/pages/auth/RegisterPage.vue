@@ -14,7 +14,7 @@
                         :class="[toggleInvalidInput(password.isValid)]" />
                     <p v-if="!password.isValid" class="invalid-text">{{ passwordErrorMessage }}</p>
                 </div>
-                <base-button title="Sign Up" type="bold" class="submit-button"></base-button>
+                <base-button title="Sign Up" type="bold" :isLoading="isLoadingSignUp" class="submit-button"></base-button>
                 <router-link to="/login">Already have an account? Log In</router-link>
             </form>
         </base-card>
@@ -22,13 +22,16 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import BaseButton from "../../components/ui/BaseButton.vue";
 import BaseCard from "../../components/ui/BaseCard.vue"
+import BaseSpinner from "../../components/ui/BaseSpinner.vue";
 
 export default {
     components: {
         BaseButton,
-        BaseCard
+        BaseCard,
+        BaseSpinner
     },
     data() {
         return {
@@ -40,16 +43,26 @@ export default {
                 value: '',
                 isValid: true
             },
-            passwordErrorMessage: ''
+            passwordErrorMessage: '',
+            isLoadingSignUp: false,
         }
     },
     methods: {
-        handleRegisterFormSubmit() {
+        async handleRegisterFormSubmit() {
+            this.isLoadingSignUp = true;
             this.email.isValid = true;
             this.password.isValid = true;
             this.passwordErrorMessage = '';
             this.verifyEmailValidity();
             this.verifyPasswordValidity();
+            await this.$store.dispatch('signUp', { email: this.email.value, password: this.password.value });
+            if (!this.isSignUpInvalid) {
+                this.$router.replace('/find-coach-vue/');
+                this.isLoadingSignUp = false;
+            } else {
+                this.isLoadingSignUp = false;
+                console.log('open toast')
+            }
         },
         verifyEmailValidity() {
             if (this.email.value === '' || !this.email.value.includes("@") || !this.email.value.includes(".com")) {
@@ -58,7 +71,6 @@ export default {
         },
         verifyPasswordValidity() {
             if (this.password.value === '') {
-                console.log('first error message')
                 this.password.isValid = false;
                 this.passwordErrorMessage = 'Password cannot be empty.';
             } else if (this.password.value.length <= 5) {
@@ -77,6 +89,9 @@ export default {
             }
         }
     },
+    computed: {
+        ...mapGetters(['isSignUpInvalid'])
+    }
 }
 </script>
 

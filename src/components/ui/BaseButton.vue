@@ -1,10 +1,12 @@
 <template>
-    <button :class="['base-button', type]">{{ title }}</button>
+    <button :class="['base-button', type]">{{ isLoading ? 'Signing Up...' : title }}</button>
 </template>
 
 <script>
+import BaseSpinner from './BaseSpinner.vue';
+
 export default {
-    props: ['title', 'type']
+    props: ['title', 'type', 'isLoading']
 }
 </script>
 
